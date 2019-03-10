@@ -50,6 +50,15 @@ namespace handlers.brazilian
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "Invalid CPF number.")]
+        public void TestCheckRepeatedDigits()
+        {
+            string cpfToTest = "111.111.111-11";
+
+            Cpf.Check(cpfToTest);
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentNullException), "Value cannot be null.")]
         public void TestFormatWithValueNull()
         {

@@ -33,6 +33,11 @@ namespace handlers.brazilian
                 throw new FormatException(message: "Invalid argument length [" + digits.Length + "].");
             }
 
+            if (HasRepeatedDigits(digits))
+            {
+                throw new ArgumentException(message: "Invalid CPF number.");
+            }
+
             // verifies
             string verifiers = digits.Substring(9, 2);
             // to be verified
@@ -69,7 +74,7 @@ namespace handlers.brazilian
                 throw new ArgumentOutOfRangeException("Value cannot be empty.");
             }
 
-            string digits = new string(cpf.Where(char.IsDigit).ToArray()).PadLeft(11, '0');
+            string digits = new string(cpf.Where(char.IsDigit).ToArray()).PadLeft(Constants.CPF_LENGTH_WITHOUT_FORMATTING, '0');
 
             return string.Format(Constants.CPF_MASK, digits[0], digits[1], digits[2], digits[3], digits[4], digits[5], digits[6], digits[7], digits[8], digits[9], digits[10]);
         }
@@ -83,6 +88,25 @@ namespace handlers.brazilian
 
             var mod11 = returnValue % 11;
             return mod11 < 2 ? '0' : (11 - mod11).ToString(CultureInfo.InvariantCulture)[0];
+        }
+
+        private static bool HasRepeatedDigits(string cpf)
+        {
+            string[] invalidNumbers =
+            {
+                "00000000000",
+                "11111111111",
+                "22222222222",
+                "33333333333",
+                "44444444444",
+                "55555555555",
+                "66666666666",
+                "77777777777",
+                "88888888888",
+                "99999999999"
+            };
+
+            return invalidNumbers.Contains(cpf);
         }
     }
 }

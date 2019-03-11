@@ -4,6 +4,15 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>handlers.brazilian.cpf</AssemblyName>
     <RootNamespace>handlers.brazilian</RootNamespace>
+    <Authors>Rafael Prudente</Authors>
+    <PackageProjectUrl>https://github.com/rafaelprudente/handlers.brazilian.cpf</PackageProjectUrl>
+    <PackageTags>brazil cpf csharp digit-check dot-net nuget validation</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Copyright>Copyright © 2019</Copyright>
+    <Description>Digit check and formatting on Brazilian Individual Taxpayer Registry (CPF)</Description>
+    <PackageLicenseUrl>https://github.com/rafaelprudente/handlers.brazilian.cpf/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryType>GitHub</RepositoryType>
   </PropertyGroup>
 
 </Project>
